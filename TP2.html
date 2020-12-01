@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script> 
+    class Voiture{
+        constructor(couleur,marque,cylindre){
+            this.couleur=couleur;
+            this.marque=marque;
+            this.cylindre=cylindre;
+        }
+    }
+
+   
+let maVoiture=  new Voiture(couleur,marque,cylindre);
+ var couleur = prompt(" quel est la couleur"); 
+    var marque = prompt(" quel est marque?"); 
+    var cylindré = prompt(" quel est cylindré?"); 
+
+
+if(couleur == "rouge"){
+    alert("quel temperament de feu!!"); 
+}
+if(marque == "ferrari"){
+    alert("rapide et cher"); 
+}
+if(cylindre > 600){
+    alert("sacré moteur"); 
+}
+if((cylindre == 600)&&(couleur == "jaune")){
+    alert("sacré moteur"); 
+}
+
+
+</script>
+</html>
