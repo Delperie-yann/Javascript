@@ -2,19 +2,20 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var x = canvas.width / 2;
 var y = canvas.height - 30;
-var dx = 3;
-var dy = -3;
-var ballRadius = 10;
-var brickRowCount = 3;
-var brickColumnCount = 5;
-var brickWidth = 75;
-var brickHeight = 20;
+var dx = 4;
+var dy = -4;
+var ballRadius = 5;
+var brickRowCount = 8;
+var brickColumnCount = 18;
+var brickWidth = 15;
+var brickHeight = 10;
 var brickPadding = 10;
 var brickOffsetTop = 30;
-var brickOffsetLeft = 30;
-
+var brickOffsetLeft = 20;
+var z =0;
 var paddleHeight = 10;
-var paddleWidth = 75;
+var paddleWidth = 55;
+
 var paddleX = (canvas.width - paddleWidth) / 2;
 
 var rightPressed = false;
@@ -26,12 +27,18 @@ for (var c = 0; c < brickColumnCount; c++) {
         bricks[c][r] = { x: 0, y: 0, status: 1 };
     }
 }
+function difficulte(){
+    if (score >2){
+   z=0.5;
+   if (score >20){
+    z=1;
+}}}
 var score = 0;
 var lives = 3;
 function drawBall() {
     ctx.beginPath();
-    ctx.arc(x, y, 10, 0, Math.PI * 2);
-    ctx.fillStyle = "#0095DD";
+    ctx.arc(x, y, 5, 0, Math.PI * 2);
+    ctx.fillStyle = "#958450";
     ctx.fill();
     ctx.closePath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
@@ -53,13 +60,14 @@ function drawBricks() {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#0095DD";
+                ctx.fillStyle = "#a0604b";
                 ctx.fill();
                 ctx.closePath();
             }
         }
     }
 }
+
 function draw() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -69,9 +77,10 @@ function draw() {
     collisionDetection();
     drawScore();
     drawLives();
-    x += dx;
-    y += dy;
+    x += dx+z;
+    y += dy+z;
     requestAnimationFrame(draw);
+    difficulte();
     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
@@ -134,7 +143,7 @@ function draw() {
                 var b = bricks[c][r];
                 if (b.status == 1) {
                     if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
-                        dy = -dy;
+                        dy = -dy+z;
                         b.status = 0;
                         score++;
                         if (score == brickRowCount * brickColumnCount) {
@@ -163,7 +172,7 @@ function draw() {
         ctx.fillStyle = "#0095DD";
         ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
     }
-
+ 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
