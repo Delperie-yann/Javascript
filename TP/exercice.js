@@ -453,7 +453,7 @@ function test() {
 
 
 
-        //controle que le nombre entré est bien < 1000
+        //controle que le nombre entré est bien < 2000
         if (nombre > 1999) {
             document.write('Le nombre entré est trop grand<br />');
         } else if (nombre == 0) {
