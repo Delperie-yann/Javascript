@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Langage de script léger</title>
+</head>
+
+<body>
+
+    <button onclick="age1()"> Age </button>
+    <script>
+
+        function age1() {
+            var n = prompt("Quel est votre age ?");
+            if ((n == "") || (isNaN(n) == true) || (n > 17)) {
+                alert("ERROR");
+            } else {
+                switch (n) {
+                    case "6":
+                    case "7":
+                        alert("Poussin");
+                        break;
+                    case "8":
+                    case "9":
+                        alert("Pupille");
+                        break;
+                    case "10":
+                    case "11":
+                        alert("Minime")
+                        break;
+                    case "12":
+                    case "13":
+                    case "14":
+                    case "15":
+                    case "16":
+                    case "17":
+                        alert("Cadet")
+                        break;
+                    default:
+                        alert("Tu ne rentre dans aucune categorie");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

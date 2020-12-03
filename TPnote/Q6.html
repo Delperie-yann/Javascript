@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Langage de script léger</title>
+</head>
+
+<body>
+
+    <button onclick="equals()"> 3 = 2 ? </button>
+    <button onclick="bool()"> 3 == 2 ? </button>
+    <script>
+       
+        function equals() {
+            var a = 3;
+            var b = 2;
+            if ((a = b)) {
+                console.log("a = b >> " + a + "=" + b)
+            }
+        }
+        
+        function bool() {
+            var a = 3;
+            var b = 2;
+            if ((a == b)) {
+                console.log("a == b >> " + a + " " + b)
+            }else{
+                console.log(a + " n'ai pas identique à " + b )
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Langage de script léger</title>
+</head>
+
+<body>
+
+    <button onclick="hello()"> Hello </button>
+    <button onclick="name1()"> Name </button>
+    <script>
+        function hello() {
+            console.log("Hello World");
+        }
+        function name1() {
+            var n = prompt("Quel est votre nom ?");
+            if (confirm("Votre nom est bien " + n + " ?")) {
+                alert("BIENVENU " + n)
+            } else {
+                name1();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

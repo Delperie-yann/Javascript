@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Langage de script léger</title>
+</head>
+
+<body>
+
+    <button onclick="dateUser()"> age </button>
+    <script>
+
+       
+        function dateUser() {
+            var d = new Date();
+             var s = d.getFullYear(); 
+            var n = prompt("Quel est votre année de naissance ?");
+
+            var age =  s-n;
+            alert(age);
+        }
+    </script>
+</body>
+
+</html>
