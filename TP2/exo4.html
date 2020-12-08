@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+
+</head>
+
+<body>
+    <button onclick="buildTrain()">Crée un train</button>
+  
+    <button onclick="nameTrain1()">Nommer train 1</button>
+    <button onclick="runTrain1()">Lance Train 1</button>
+    <button onclick="nameTrain2()">Nommer train 2</button>
+    <button onclick="runTrain2">Lance Train 2</button>
+</body>
+<script>
+
+    var Vacc = [10, 20, 40, 70, 90, 150];
+    var Vdesc = [150, 120, 80, 60, 20, 0];
+    var Vmax = 0;
+    var accelere=0;
+    var freine=0;
+    class Train {
+        constructor(accelere, freine) {
+            this.accelere = accelere;
+            this.freine = freine;
+
+        }
+    }
+    builder = true;
+    function buildTrain() {
+        if (builder == true) {
+      
+            var monTrain1 = new Train(accelere, freine);
+            var monTrain2 = new Train(accelere, freine);
+            alert("Vous avez crée 2 trains");
+            builder = false;
+        }
+    }
+    function acc() {
+        var speedA;
+        for (var i = 0; i < Vacc.length; i++) {
+               
+            console.log(Vacc[i]);
+            
+           
+        }
+    }
+    function desc() {
+      
+        for (var i = 0; i < Vdesc.length; i++) {
+           
+            console.log(Vdesc[i]);
+        }
+    }
+function runTrain1() {
+    acc();
+    desc();
+
+    
+}
+function runTrain2(Vacc,Vdesc) {
+    acc();
+    desc();
+}
+
+    function nameTrain1() {
+        monTrain1 = prompt("Quel nom voulez vous donnez a ce train?")
+    console.log("Le train N° 1 se nomme "+ monTrain1 );
+
+    }
+
+    function nameTrain2() {
+        monTrain2 = prompt("Quel nom voulez vous donnez a ce train?")
+        console.log("Le train N° 2 se nomme "+ monTrain2 );
+
+    }
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+</body>
+<script>
+    var PoidsEnKg = prompt("Quel est votre poids? ");
+    var nbVerre = prompt("combien de verre bu ? ");
+    var tauxAlcoolemie = (nbVerre * 10) / PoidsEnKg * 0.7;
+    tauxAlcoolemie = roundDecimal(tauxAlcoolemie, 2);
+    alert(" vous avez un taux à " + tauxAlcoolemie + " d'acloolemie")
+    
+    function roundDecimal(nombre, precision) {
+        var precision = precision || 2;
+        var tmp = Math.pow(10, precision);
+        return Math.round(nombre * tmp) / tmp;
+    }
+</script>
+
+</html>

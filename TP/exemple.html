@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Objet Array - Une liste à partir d’une autre</title>
+    <script>
+        function listeville() {
+            var villeAlsace = new Array();
+            var villeIDF = new Array();
+            var villeLorraine = new Array();
+            var villeHerault = new Array();
+            villeAlsace = ["Strasbourg", "Mulhouse", "Colmar"];
+            villeIDF = ["Paris", "Evry", "Cergy", "Versailles"];
+            villeLorraine = ["Metz", "Nancy", "Verdun"];
+            villeHerault = ["Montpellier", "Bezier", "Sete"];
+
+            if (document.form1.Region.value == "Alsace") {
+
+                villeAlsace.sort();
+
+                nbelements = villeAlsace.length;
+                ville.options.length = nbelements;
+                for (i = 0; i < nbelements; i++) {
+                    document.form1.ville.options[i] = new Option(villeAlsace[i], villeAlsace[i]);
+                }
+            }
+            else if (document.form1.Region.value == "Ile-de-France") {
+
+                villeIDF.sort();
+
+                nbelements = villeIDF.length;
+
+                for (i = 0; i < nbelements; i++) {
+                    document.form1.ville.options[i] = new Option(villeIDF[i], villeIDF[i]);
+                }
+
+            }
+            else if (document.form1.Region.value == "Herault") {
+                villeHerault.sort();
+                nbelements = villeHerault.length;
+                ville.options.length = nbelements;
+                for (i = 0; i < nbelements; i++) {
+                    document.form1.ville.options[i] = new Option(villeHerault[i], villeHerault[i]);
+                }
+            }
+            else {
+
+                villeLorraine.sort();
+                nbelements = villeLorraine.length;
+                ville.options.length = nbelements;
+                for (i = 0; i < nbelements; i++) {
+                    document.form1.ville.options[i] = new Option(villeLorraine[i], villeLorraine[i]);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onLoad="listeville()">
+    <form id="form1" name="form1" method="post" action="">
+        <select name="Region" id="Region" onChange="listeville()">
+            <option value="Alsace">Alsace</option>
+            <option value="Ile-de-France">Ile-de-France</option>
+            <option value="Lorraine">Lorraine</option>
+            <option value="Herault">Hérault</option>
+        </select>
+        <select name="ville" id="ville">
+        </select>
+        <input type="button" name="Submit" value="Bouton" />
+    </form>
+</body>
+
+</html>
