@@ -15,10 +15,12 @@
 <script>
     var PoidsEnKg = prompt("Quel est votre poids? ");
     var nbVerre = prompt("combien de verre bu ? ");
+
     var tauxAlcoolemie = (nbVerre * 10) / PoidsEnKg * 0.7;
     tauxAlcoolemie = roundDecimal(tauxAlcoolemie, 2);
-    alert(" vous avez un taux à " + tauxAlcoolemie + " d'acloolemie")
     
+    alert(" vous avez un taux à " + tauxAlcoolemie + " d'acloolemie")
+
     function roundDecimal(nombre, precision) {
         var precision = precision || 2;
         var tmp = Math.pow(10, precision);

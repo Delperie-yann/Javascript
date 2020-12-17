@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>DOM</title>
+    <meta charset=utf-8>
+    <style type="text/css">
+        table {
+            width: 270px;
+            border-collapse: collapse;
+            border: 1px solid black;
+            margin-top: 15px;
+        }
+
+        td {
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        #resultat {
+            font-weight: bold;
+        }
+
+        div {
+            margin-top: 12px;
+        }
+
+        button {
+            margin-top: 12px;
+        }
+    </style>
+ 
+</head>
+
+<body onload="init()">
+    <div id="container"></div>
+</body>
+   <script type="text/javascript">
+    
+        function init() {
+            // Recherche de l’élément div ayant comme identifiant container 
+            var ancienContainer = document.getElementById('container');
+            // Création en mémoire d’un élément div 
+            var nouvelleDiv = document.createElement('div');
+            // Création du node de type texte 
+            var texteDiv = document.createTextNode('Bonjour le monde');
+            // Affectation du node texteDiv au node nouvelleDiv 
+            nouvelleDiv.appendChild(texteDiv);
+            // Intégration du nouveau div
+            ancienContainer.appendChild(nouvelleDiv);
+        }
+    </script>
+</html>

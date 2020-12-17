@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exos 2.6</title>
+    <script type="text/javascript">
+
+        function hello() {
+            var textEnter = document.querySelector('#test');
+            var content = document.querySelector('#content');
+            var textDiv = document.createTextNode(textEnter.value);
+            content.innerHTML = textEnter.value;
+        }
+
+        function showHxContent(nb) {
+
+            console.log(this)
+            var text = document.getElementById("id" + nb);
+            text.style.display = "block";
+
+        }
+
+        function hideAllDivs() {
+            let div = document.querySelectorAll("h1+div")
+            console.log(div)
+            div.forEach(e => e.style.display = "none");
+
+        }
+
+        /*
+        function showHxContent() {
+            let h1 = window.event.target;
+            let div = h1.nextElementSibling;
+            console.log(div);
+            div.style.dispaley="block";
+        }
+        
+        function showHxContent() {
+            event.target.nextElementSibling.style.display = "unset";
+        }
+        function hideAllDivs() {
+            id1.style.display = "none";
+            id2.style.display = "none";
+        }
+        */
+        function alertTitle() {
+            let titleNode = document.querySelector("h1:nth-of-type(" +
+                document.getElementById('title').value + ")");
+            //+div>p
+            if (titleNode) {
+                alert(titleNode.innerHTML)
+            }
+            function alertTitle() {
+                var title = document.querySelector('#title');
+                var content = document.querySelector('h1:nth-of-type(' + title.value + ')+div>p');
+                //console.log('h1:nth-child('+title.value+')');
+                if (content) {
+                    alert(content.textContent);
+                }
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <label for="test">Enter text</label> <input type="text" id="test">
+
+    <button onclick="hello()">cliquez</button>
+    <div id="content"></div>
+
+
+    <h1 onClick="showHxContent(1)">Partie 1</h1>
+
+    <div id="id1" style="display:none">
+
+        <p>Mon premier paragraphe</p>
+
+        <p>Mon second paragraphe</p>
+
+    </div>
+
+    <h1 onClick="showHxContent(2)">Partie 2</h1>
+
+    <div id="id2" style="display:none">
+
+        <p>Mon premier paragraphe</p>
+
+        <p>Mon second paragraphe</p>
+
+    </div>
+
+    <p>
+
+        <input type="submit" value="Masquer" onClick="hideAllDivs()" />
+
+    </p>
+
+    <p>
+
+        Titre n°: <input type="text" id="title" />
+
+        <input type="submit" value="Afficher" onClick="alertTitle()" />
+
+    </p>
+</body>
+
+</html>

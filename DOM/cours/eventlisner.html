@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exos 2.6</title>
+
+</head>
+
+<body>
+    <label for="test">Enter text</label> <input type="text" id="test">
+
+    <button>cliquez</button>
+    <div id="content"></div>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            // code
+       
+        var button = document.querySelector('button');
+        console.log(button);
+        button.addEventListener('click', hello, false);
+
+        function hello() {
+            var textEnter = document.querySelector('#test');
+            var content = document.querySelector('#content');
+            var textDiv = document.createTextNode(textEnter.value);
+            content.innerHTML = textEnter.value;
+        }
+    });
+    </script>
+</body>
+
+</html>

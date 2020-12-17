@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>
+    </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <button onclick="createTrains()">Créer trains</button>
+    <div>
+        <button onclick="functionsButton()">Exécuter fonction suivante</button>
+
+        <div>
+            <input type="radio" id="nameTrains" name="trainFunctions" checked>
+            <label for="nameTrains">Nommer trains</label>
+        </div>
+
+        <div>
+            <input type="radio" id="startTrains" name="trainFunctions">
+            <label for="startTrains">Départ des trains</label>
+        </div>
+    </div>
+
+
+    <script>
+        var train1, train2;
+
+        function createTrains() {
+            train1 = new Train("10-20-40-70-90-150", "150-120-80-60-20-0");
+            train2 = new Train("10-20-40-70-90-150", "150-120-80-60-20-0");
+        }
+
+
+        function functionsButton() {
+            if (document.getElementById("nameTrains").checked) {
+                train1.name = prompt("Nom du train 1?");
+                train2.name = prompt("Nom du train 2?");
+            } else {
+                if (confirm("Démarrer les trains?")) {
+
+
+
+                    train1.accelerate(4);
+                    console.log(train1.status);
+                    train1.decelerate(1);
+                    console.log(train1.status);
+
+                    train2.loadPassengers(10);
+                    console.log(train2.status);
+                }
+            }
+        }
+
+        class Train {
+            constructor(acceleration, deceleration) {
+                this.acceleration = acceleration.split("-");
+                this.deceleration = deceleration.split("-").reverse();
+                this.speed = 0;
+                this.state = 0;
+                this.passengers = 0;
+                this.name = "Train";
+            }
+
+
+            accelerate(ammount) {
+                this.state += ammount;
+                if (this.state > this.acceleration.length) {
+                    this.state = this.acceleration.length;
+                }
+
+                if (this.state == 0) {
+                    speed = 0;
+                } else {
+                    this.speed = this.acceleration[this.state - 1];
+                }
+            }
+
+
+            decelerate(ammount) {
+                this.state -= ammount;
+                if (this.state < 0) {
+                    this.state = 0;
+                }
+
+                if (this.state == 0) {
+                    speed = 0;
+                } else {
+                    this.speed = this.deceleration[this.state - 1];
+                }
+            }
+
+            loadPassengers(number) {
+                this.passengers += number;
+            }
+
+            unloadPassengers(number) {
+                this.passengers -= number;
+
+                if (this.passengers < 0) {
+                    this.passengers = 0;
+                }
+            }
+
+            get status() {
+                return "Name: " + this.name +
+                    "\nPassengers: " + this.passengers +
+                    "\nSpeed: " + this.speed + " km/h" +
+                    "\nDoors: " + (this.speed ? "Closed" : "Open");
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        #cadre {
+            height: 300px;
+            width: 300px;
+            border: 1px solid black;
+            margin-left: 100px;
+        }
+
+        ul {
+            text-align: center;
+            margin-left: 100px;
+        }
+
+        .title2 {
+            margin-left: 100px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .title1 {
+            width: 200px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        button{
+            position: absolute;
+             margin-top :-35px;
+            margin-left: 250px;
+            height: 25px;
+            width: 20px;
+            border-radius: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex flex-row">
+
+        <ul class="list-group">
+            <p class="title1" id="liste">Liste</p>
+            <li class="list-group-item">Pomme</li>
+            <li class="list-group-item">Poire</li>
+            <li class="list-group-item">Prune</li>
+        </ul>
+        <div class="d-flex flex-column">
+            <p class="title2" id="panier">Panier</p>
+            <div id="cadre">
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var elem1 = document.querySelectorAll('ul>li');
+            elem1.forEach(element => {
+                element.addEventListener('click', world);
+
+            });
+
+
+            var content = document.querySelector('#cadre');
+
+
+            var nbPom = 0;
+            var nbPru = 0;
+            var nbPoi = 0;
+            var divRedPom;
+            function conteurPomme() {
+                if (event.target.textContent == "Pomme") {
+                    nbPom += 1;
+                    console.log(nbPom + "  function")
+                    return nbPom;
+                }
+            }
+            function conteurPoire() {
+                if (event.target.textContent == "Poire") {
+                    nbPoi += 1;
+                    console.log(nbPoi + "  function")
+                    return nbPoi;
+                }
+            }
+            function conteurPrune() {
+                if (event.target.textContent == "Prune") {
+                    nbPru += 1;
+                    console.log(nbPru + "  function")
+                    return nbPru;
+                }
+            }
+            function buttonPom(){
+                var divRedPom= document.createElement('button')
+                    divRedPom.id = "suppPom";
+                    content.appendChild(divRedPom);
+            }
+            function buttonPoi(){
+                let divRedPoi= document.createElement('button')
+                    divRedPoi.id = "suppPoi";
+                    content.appendChild(divRedPoi);
+            }
+            function buttonPru(){
+                let divRedPru= document.createElement('button')
+                    divRedPru.id = "suppPru";
+                    content.appendChild(divRedPru);
+            }
+            function supp(){
+                console.log("toto");
+            }
+
+            function world() {
+                conteurPrune();
+                conteurPoire();
+                conteurPomme();
+                text = event.target.textContent;
+               
+                
+               
+               
+                // var textDiv = document.createTextNode(text);
+                //textPoire = event.target.textContent + "    " + nbPoi;
+                //textPrune = event.target.textContent + "    " + nbPru;
+                if (text == "Pomme") {
+                    if (nbPom == 1) {
+                        var divPom = document.createElement('p');
+                        divPom.id = "pomme";
+                        divPom.innerHTML = text;
+                        content.appendChild(divPom)+buttonPom();
+                      
+                    } else {
+                        let divPom = document.querySelector("#pomme");
+                        divPom.innerHTML = text + " qte - " + nbPom;
+                    }
+                   
+                }
+              
+                // console.log( divRedPom.addEventListener('click',"toto"));
+                
+                if (text == "Poire") {
+                    
+                    if (nbPoi == 1) {
+                        let divPoi = document.createElement('p');
+                        divPoi.id = "poire";
+                        divPoi.innerHTML = text;
+                        content.appendChild(divPoi)+buttonPoi();
+                    } else {
+                        let divPoi = document.querySelector("#poire");
+                        divPoi.innerHTML = text + " qte - " + nbPoi;
+                    }
+                }
+                if (text == "Prune") {
+                    if (nbPru == 1) {
+                        let divPru = document.createElement('p');
+                        divPru.id = "prune";
+                        divPru.innerHTML = text;
+                        content.appendChild(divPru)+buttonPru();
+                    } else {
+                        let divPru = document.querySelector("#prune");
+                        divPru.innerHTML = text + " qte - " + nbPru;
+                    }
+                }
+                /*
+                if (text== "Poire"){
+                    nb= nbPoi;
+                }
+                if (text== "Prune"){
+                    nb= nbPru;
+                }
+                
+                text = event.target.textContent + "    " + nb;
+                text=text.replace(text);
+                 content.innerHTML += text + "<br>" ;
+                */
+                // content.innerHTML += textPoire ;
+                // content.innerHTML += textPrune ;
+                //content.appendChild(textDiv);
+                //content.appendChild(document.createElement("br"));
+
+
+
+                /*  var textEnter = document.querySelector('#li');
+                console.log(textEnter)
+                var textDiv = document.createTextNode(textEnter.value);
+                content.innerHTML = textEnter.value;*/
+            }
+        });
+    </script>
+</body>
+
+</html>
